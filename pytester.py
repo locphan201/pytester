@@ -30,19 +30,8 @@ class ColoredTestResult(unittest.TextTestResult):
             self.stream.write(f'{Fore.RED}Errors:{Style.RESET_ALL}\n')
             super().printErrors()
 
-
-################################################
-#                  TEST CASES                  #
-################################################
-
-from examples import *
-
-class TestExampleFunctions(unittest.TestCase):
-    def test_example_text(self):
-        self.assertEqual(example_text(), 'example')
-        
-    def test_example_numbers(self):
-        self.assertEqual(example_number(), 0)
+def run():
+    unittest.main(testRunner=ColoredTestRunner())
 
 if __name__ == "__main__":
-    result = unittest.main(testRunner=ColoredTestRunner())
+    run()
